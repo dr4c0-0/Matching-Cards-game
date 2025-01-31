@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{A13B02A1-E3C2-4FE4-B95E-74D04924E251}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Memory_2D.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\school -_-\PAT in Delphi\Project4.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Memory_2D">
+        <MSBuild Projects="Memory_2D.dproj"/>
+    </Target>
+    <Target Name="Memory_2D:Clean">
+        <MSBuild Projects="Memory_2D.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Memory_2D:Make">
+        <MSBuild Projects="Memory_2D.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Project4">
+        <MSBuild Projects="..\school -_-\PAT in Delphi\Project4.dproj"/>
+    </Target>
+    <Target Name="Project4:Clean">
+        <MSBuild Projects="..\school -_-\PAT in Delphi\Project4.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Project4:Make">
+        <MSBuild Projects="..\school -_-\PAT in Delphi\Project4.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Memory_2D;Project4"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Memory_2D:Clean;Project4:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Memory_2D:Make;Project4:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
